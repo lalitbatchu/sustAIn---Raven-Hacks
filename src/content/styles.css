@@ -1,0 +1,279 @@
+.eco-btn-claude {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 32px !important;
+  padding: 0 12px !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  font-family: "Tiempos", "Sohne", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  margin-right: 8px !important;
+  gap: 6px !important;
+}
+
+.eco-btn-claude:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.eco-btn-claude svg {
+  width: 14px !important;
+  height: 14px !important;
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.eco-btn-grok {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 28px !important;
+  padding: 0 10px !important;
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  font-family: "Sohne", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  gap: 6px !important;
+}
+
+.eco-btn-grok:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.eco-btn-grok:active {
+  transform: scale(0.97);
+}
+
+.eco-btn-grok svg {
+  width: 12px !important;
+  height: 12px !important;
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.eco-btn-deepseek {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 30px !important;
+  padding: 0 12px !important;
+  border-radius: 9999px !important;
+  background: #ffffff !important;
+  color: #3b4a66 !important;
+  border: 1px solid #e6e9f0 !important;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  gap: 6px !important;
+}
+
+.eco-btn-deepseek:hover {
+  background: #f3f6ff !important;
+  border-color: #d6ddf0 !important;
+  color: #2e3b55 !important;
+}
+
+.eco-btn-deepseek:active {
+  transform: scale(0.98);
+}
+
+.eco-btn-deepseek svg {
+  width: 12px !important;
+  height: 12px !important;
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.eco-btn-perplexity {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 28px !important;
+  padding: 0 10px !important;
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+  gap: 6px !important;
+}
+
+.eco-btn-perplexity:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.eco-btn-perplexity:active {
+  transform: scale(0.97);
+}
+
+.eco-btn-perplexity svg {
+  width: 12px !important;
+  height: 12px !important;
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.eco-btn,
+.eco-undo-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  border: 1px solid #22c55e !important;
+  background: transparent !important;
+  color: #22c55e !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.eco-injection-gemini {
+  margin-top: 6px !important;
+}
+
+.eco-btn svg,
+.eco-undo-btn svg {
+  color: #22c55e !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.eco-btn:hover,
+.eco-undo-btn:hover {
+  background: #22c55e !important;
+  color: #000000 !important;
+}
+
+.eco-btn:hover svg,
+.eco-undo-btn:hover svg {
+  color: #000000 !important;
+}
+
+.eco-split-btn-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  border: 1px solid #22c55e !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+.eco-btn-main,
+.eco-btn-trigger {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  border: none !important;
+  background: transparent !important;
+  color: #22c55e !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.eco-btn-main {
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+}
+
+.eco-btn-trigger {
+  padding: 6px 8px !important;
+  border-left: 1px solid #22c55e !important;
+}
+
+.eco-btn-main svg,
+.eco-btn-trigger svg {
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.eco-btn-main:hover,
+.eco-btn-trigger:hover {
+  background: #22c55e !important;
+  color: #000000 !important;
+}
+
+.eco-btn-trigger[aria-expanded="true"] {
+  background: #22c55e !important;
+  color: #000000 !important;
+}
+
+.eco-dropdown-menu {
+  margin-bottom: 0 !important;
+  z-index: 2147483647 !important;
+  min-width: 120px !important;
+  background: rgba(20, 20, 20, 0.95) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(34, 197, 94, 0.3) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden !important;
+}
+
+.eco-dropdown-item {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  padding: 8px 12px !important;
+  background: transparent !important;
+  border: none !important;
+  color: #d4d4d4 !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.eco-dropdown-item:hover {
+  background: rgba(34, 197, 94, 0.1) !important;
+  color: #22c55e !important;
+}
+
+.eco-dropdown-item.is-active {
+  color: #22c55e !important;
+}
+
+.eco-dropdown-check {
+  font-size: 12px !important;
+  color: #22c55e !important;
+}

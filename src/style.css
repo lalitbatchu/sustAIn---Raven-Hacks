@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply min-h-screen bg-neutral-950 text-white/90 antialiased;
+    background-image: radial-gradient(
+      900px 600px at 10% 0%,
+      rgba(255, 255, 255, 0.05),
+      transparent 60%
+    );
+  }
+}
+
+@layer components {
+  .eco-btn-gemini {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 8px 16px !important;
+    border-radius: 100px !important;
+    background-color: transparent !important;
+    color: #e3e3e3 !important;
+    font-family: "Google Sans", "Roboto", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    box-shadow: none !important;
+  }
+
+  .eco-btn-gemini:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .eco-btn-gemini svg {
+    width: 18px !important;
+    height: 18px !important;
+    color: currentColor !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+}

@@ -1,0 +1,710 @@
+.eco-tutorial-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.eco-tutorial-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+}
+
+.eco-tutorial-backdrop--compress-step {
+  background: transparent;
+}
+
+.eco-tutorial-backdrop--comparison-step {
+  background: rgba(3, 5, 4, 0.62);
+  backdrop-filter: blur(2px);
+}
+
+.eco-tutorial-card {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(450px, calc(100vw - 32px));
+  max-width: 450px;
+  padding: 32px;
+  border-radius: 16px;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  color: #a3a3a3;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  pointer-events: auto;
+  transition:
+    top 680ms cubic-bezier(0.16, 1, 0.3, 1),
+    left 680ms cubic-bezier(0.16, 1, 0.3, 1),
+    width 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    max-width 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    padding 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 680ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 260ms ease,
+    background 260ms ease,
+    box-shadow 260ms ease,
+    color 260ms ease;
+  will-change: top, left, width, padding, transform;
+  z-index: 4;
+}
+
+.eco-tutorial-card-compress-step {
+  top: 30px;
+  left: calc(100vw - min(350px, calc(100vw - 24px)) - 30px);
+  transform: none;
+  width: min(350px, calc(100vw - 24px));
+  max-width: 350px;
+}
+
+.eco-tutorial-card-compare-step {
+  top: 34px;
+  left: calc(100vw - min(290px, calc(100vw - 28px)) - 30px);
+  transform: none;
+  width: min(290px, calc(100vw - 28px));
+  max-width: 290px;
+  padding: 22px;
+  border-color: rgba(34, 197, 94, 0.18);
+  background: rgba(16, 16, 16, 0.9);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.34);
+  color: #b8b8b8;
+  z-index: 5;
+}
+
+.eco-tutorial-card-compression-level-step {
+  top: 30px;
+  left: calc(100vw - min(340px, calc(100vw - 28px)) - 30px);
+  transform: none;
+  width: min(340px, calc(100vw - 28px));
+  max-width: 340px;
+  padding: 24px;
+  border-color: rgba(34, 197, 94, 0.2);
+  background: rgba(18, 18, 18, 0.92);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.36);
+  z-index: 5;
+}
+
+.eco-tutorial-card-compression-level-step .eco-tutorial-title {
+  font-size: 22px;
+}
+
+.eco-tutorial-card-compression-level-step .eco-tutorial-body {
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.eco-tutorial-card-compression-level-step .eco-tutorial-actions {
+  margin-top: 20px;
+}
+
+.eco-tutorial-card-compare-step .eco-tutorial-title {
+  font-size: 21px;
+}
+
+.eco-tutorial-card-compare-step .eco-tutorial-body {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.eco-tutorial-card-compare-step .eco-tutorial-actions {
+  margin-top: 18px;
+}
+
+.eco-tutorial-card-compare-step .eco-tutorial-btn-primary {
+  padding: 11px 16px;
+}
+
+.eco-tutorial-prompt-spotlight {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 22px;
+  border: 1px solid rgba(74, 222, 128, 0.32);
+  background:
+    linear-gradient(180deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.03));
+  box-shadow:
+    0 0 0 1px rgba(34, 197, 94, 0.08) inset,
+    0 0 0 8px rgba(34, 197, 94, 0.04),
+    0 18px 36px rgba(0, 0, 0, 0.22),
+    0 0 34px rgba(34, 197, 94, 0.12);
+  opacity: 0;
+  transform: translateY(8px) scale(0.985);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.eco-tutorial-prompt-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 28px;
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.18), transparent 72%);
+  opacity: 0.55;
+}
+
+.eco-tutorial-prompt-spotlight--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: eco-prompt-halo 2.8s ease-in-out infinite;
+}
+
+.eco-tutorial-prompt-spotlight--hidden {
+  opacity: 0;
+  transform: translateY(8px) scale(0.985);
+}
+
+.eco-tutorial-connector {
+  position: fixed;
+  z-index: 3;
+  height: 2px;
+  pointer-events: none;
+  transform-origin: 0 50%;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(34, 197, 94, 0),
+    rgba(34, 197, 94, 0.18) 16%,
+    rgba(74, 222, 128, 0.72) 52%,
+    rgba(34, 197, 94, 0)
+  );
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.22);
+  opacity: 0;
+  transition:
+    opacity 220ms ease,
+    filter 220ms ease;
+  filter: saturate(0.92);
+}
+
+.eco-tutorial-connector::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #4ade80;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.36);
+  transform: translateY(-50%);
+}
+
+.eco-tutorial-connector--visible {
+  opacity: 0.88;
+  filter: saturate(1);
+}
+
+.eco-tutorial-connector--hidden {
+  opacity: 0;
+}
+
+.eco-tutorial-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1.2;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.eco-tutorial-success-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.eco-tutorial-success-icon svg {
+  width: 64px;
+  height: 64px;
+}
+
+.eco-tutorial-success-circle,
+.eco-tutorial-success-check {
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.eco-tutorial-success-circle {
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: eco-draw-circle 450ms ease forwards;
+}
+
+.eco-tutorial-success-check {
+  stroke-dasharray: 35;
+  stroke-dashoffset: 35;
+  animation: eco-draw-check 350ms ease forwards 450ms;
+}
+
+.eco-tutorial-body {
+  margin: 14px 0 0;
+  color: #d4d4d4;
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+}
+
+.eco-tutorial-body-strong {
+  color: #ffffff;
+}
+
+.eco-tutorial-body-strong strong {
+  font-weight: 700;
+}
+
+.eco-tutorial-comparison-panel {
+  position: fixed;
+  z-index: 2;
+  display: grid;
+  gap: 10px;
+  padding: 13px;
+  border-radius: 15px;
+  background:
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), transparent 42%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.96), rgba(10, 10, 10, 0.94));
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(34, 197, 94, 0.24);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 0 18px rgba(34, 197, 94, 0.08);
+  color: #d4d4d4;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    filter 220ms ease;
+  filter: saturate(0.96);
+}
+
+.eco-tutorial-comparison-panel,
+.eco-tutorial-comparison-panel * {
+  pointer-events: none !important;
+}
+
+.eco-tutorial-comparison-panel::before {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto -10%;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.eco-tutorial-comparison-panel--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: saturate(1);
+}
+
+.eco-tutorial-comparison-panel--hidden {
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+}
+
+.eco-tutorial-comparison-header,
+.eco-tutorial-comparison-grid,
+.eco-tutorial-comparison-summary,
+.eco-tutorial-comparison-checklist,
+.eco-tutorial-comparison-stats {
+  position: relative;
+  z-index: 1;
+}
+
+.eco-tutorial-comparison-header {
+  display: grid;
+  gap: 4px;
+}
+
+.eco-tutorial-comparison-kicker {
+  color: rgba(34, 197, 94, 0.92);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eco-tutorial-comparison-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.eco-tutorial-comparison-subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.eco-tutorial-comparison-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.eco-tutorial-comparison-stat {
+  display: grid;
+  gap: 3px;
+  padding: 7px 9px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+}
+
+.eco-tutorial-comparison-stat-label {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eco-tutorial-comparison-stat-value {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.eco-tutorial-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+}
+
+.eco-tutorial-comparison-output-card {
+  display: grid;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+  min-height: 118px;
+}
+
+.eco-tutorial-comparison-output-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.eco-tutorial-comparison-output-body {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 11px;
+  line-height: 1.35;
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.eco-tutorial-comparison-summary {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.eco-tutorial-comparison-summary-label {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eco-tutorial-comparison-checklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.eco-tutorial-comparison-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 197, 94, 0.16);
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(5px) scale(0.985);
+  will-change: opacity, transform;
+}
+
+.eco-tutorial-comparison-panel--visible .eco-tutorial-comparison-checklist-item {
+  animation: eco-compare-check-in 260ms ease forwards;
+}
+
+.eco-tutorial-comparison-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.16);
+  color: #4ade80;
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.2);
+}
+
+.eco-tutorial-comparison-check-icon::before {
+  content: "\2713";
+}
+
+.eco-tutorial-toolbar-hint {
+  position: fixed;
+  top: 10px;
+  right: 80px;
+  z-index: 2147483650;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid #22c55e;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.eco-tutorial-toolbar-text {
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.eco-tutorial-stats-preview {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.eco-tutorial-preview-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.eco-tutorial-preview-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 7px 10px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eco-tutorial-preview-pill-value {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.eco-tutorial-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.eco-tutorial-preview-card {
+  display: grid;
+  gap: 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px;
+}
+
+.eco-tutorial-preview-card-label {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eco-tutorial-preview-card-value {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.eco-tutorial-actions {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eco-tutorial-btn {
+  border: 0;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+}
+
+.eco-tutorial-btn-primary {
+  border-radius: 10px;
+  padding: 12px 18px;
+  background: #22c55e;
+  color: #000000;
+  font-weight: 500;
+  transition: filter 150ms ease;
+}
+
+.eco-tutorial-btn-primary:hover {
+  filter: brightness(0.94);
+}
+
+.eco-tutorial-btn-secondary {
+  background: transparent;
+  color: #a3a3a3;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.eco-tutorial-btn-secondary:hover {
+  text-decoration: underline;
+}
+
+.eco-tutorial-highlight {
+  z-index: 2147483650 !important;
+  pointer-events: auto !important;
+  isolation: isolate;
+}
+
+@media (max-width: 900px) {
+  .eco-tutorial-card-compare-step {
+    width: min(300px, calc(100vw - 24px));
+    left: calc(100vw - min(300px, calc(100vw - 24px)) - 16px);
+    top: 16px;
+  }
+
+  .eco-tutorial-card-compression-level-step {
+    width: min(320px, calc(100vw - 24px));
+    left: calc(100vw - min(320px, calc(100vw - 24px)) - 16px);
+    top: 16px;
+  }
+
+  .eco-tutorial-comparison-panel {
+    padding: 12px;
+  }
+
+  .eco-tutorial-comparison-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .eco-tutorial-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes eco-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+@keyframes eco-prompt-halo {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(34, 197, 94, 0.08) inset,
+      0 0 0 8px rgba(34, 197, 94, 0.04),
+      0 18px 36px rgba(0, 0, 0, 0.22),
+      0 0 34px rgba(34, 197, 94, 0.12);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(34, 197, 94, 0.1) inset,
+      0 0 0 10px rgba(34, 197, 94, 0.05),
+      0 18px 36px rgba(0, 0, 0, 0.22),
+      0 0 42px rgba(34, 197, 94, 0.18);
+  }
+}
+
+@keyframes eco-compare-check-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes eco-draw-circle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes eco-draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

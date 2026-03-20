@@ -1,0 +1,41 @@
+:root {
+  --cyrion-green: #22c55e;
+}
+
+.pet-header-icon {
+  color: var(--cyrion-green) !important;
+}
+
+.pet-pill-value {
+  color: var(--cyrion-green) !important;
+  font-weight: 400;
+}
+
+.pet-pill-icon {
+  color: var(--cyrion-green) !important;
+}
+
+.pet-pill {
+  font-weight: 400;
+}
+
+.pet-stat-value {
+  color: var(--cyrion-green) !important;
+  font-weight: 500;
+}
+
+.pet-stat-icon {
+  color: var(--cyrion-green) !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.pet-toggle-track.pet-toggle-track-on {
+  background: var(--cyrion-green) !important;
+  border-color: rgba(34, 197, 94, 0.7) !important;
+}
+
+.pet-footer-link:hover {
+  border-color: var(--cyrion-green) !important;
+  color: var(--cyrion-green) !important;
+}
